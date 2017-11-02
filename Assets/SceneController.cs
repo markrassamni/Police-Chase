@@ -5,16 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour {
 
-	void Start () {
-		DontDestroyOnLoad(gameObject);
-		SceneManager.LoadScene("MainMenu");
-	}
-	
-	void Update () {
-		
-	}
-
 	public void LoadGame(){
 		SceneManager.LoadScene("Game");
+	}
+
+	public void LoadMenu(){
+		SceneManager.LoadScene("MainMenu");
+	}
+
+	public void LoadOptions(){
+		SceneManager.LoadScene("Options");
+	}
+
+	public void LoadCredits(){
+		SceneManager.LoadScene("Credits");
 	}
 }

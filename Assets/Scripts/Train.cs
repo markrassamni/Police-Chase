@@ -9,6 +9,7 @@ public class Train : Obstacle {
 	[SerializeField] private Obstacle railPrefab;
 	[SerializeField] private float minSpawnTime;
 	[SerializeField] private float maxSpawnTime = 1.5f;
+	[SerializeField] private GameObject[] wagons;
 
 	private bool startedMoving;
 
@@ -33,6 +34,7 @@ public class Train : Obstacle {
 		}
 		Assert.AreNotEqual(topTrain, bottomTrain);
 		SpawnRail();
+		SpawnWagons();
 		yield return new WaitForSeconds(Random.Range(minSpawnTime, maxSpawnTime));
 		startedMoving = true;
 	}
@@ -42,6 +44,13 @@ public class Train : Obstacle {
 		Obstacle rail = Instantiate(railPrefab, new Vector3(transform.position.x, 0f, transform.position.z), railPrefab.transform.rotation, obstacleController.transform);
 		transform.parent = rail.transform;
 		obstacleController.AddObstacle(rail);
+	}
+
+	private void SpawnWagons(){
+		int numberOfWagons = Random.Range(0, wagons.Length+1);
+		for (int i=0; i<numberOfWagons; i++){
+			wagons[i].SetActive(true);
+		}
 	}
 
 	override public void Move(){

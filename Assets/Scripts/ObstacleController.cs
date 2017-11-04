@@ -34,7 +34,7 @@ public class ObstacleController : MonoBehaviour {
 		}
 	}
 
-	public void DestoryObstacle(Obstacle obstacle){
+	public void DestroyObstacle(Obstacle obstacle){
 		obstacles.Remove(obstacle);
 		Destroy(obstacle.gameObject);
 	}

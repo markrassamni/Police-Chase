@@ -22,7 +22,7 @@ public class Obstacle : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "ObstacleDestroyer"){
-			FindObjectOfType<ObstacleController>().DestoryObstacle(this);
+			FindObjectOfType<ObstacleController>().DestroyObstacle(this);
 		}
 	}
 }

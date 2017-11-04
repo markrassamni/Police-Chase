@@ -29,8 +29,7 @@ public class ObstacleController : MonoBehaviour {
 
 	private void MoveObstacles(){
 		foreach(Obstacle obstacle in obstacles){
-			float moveSpeed = obstacle.MoveSpeed;
-			obstacle.transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+			obstacle.Move();
 		}
 	}
 

@@ -7,23 +7,20 @@ public class Obstacle : MonoBehaviour {
 	[SerializeField] private float moveSpeed = 3.85f;
 	[SerializeField] private Transform[] spawnPoints;
 
-	public float MoveSpeed {
+	public float MoveSpeed{
 		get{
 			return moveSpeed;
 		}
 	}
+
 	public Transform[] SpawnPoints{
 		get{
 			return spawnPoints;
 		}
 	}
 
-	void Start () {
-		
-	}
-	
-	void Update () {
-		
+	virtual public void Move(){
+		transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
 	}
 
 	void OnTriggerEnter2D(Collider2D other){

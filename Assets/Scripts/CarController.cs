@@ -5,15 +5,21 @@ using UnityEngine;
 public class CarController : MonoBehaviour {
 
 	[SerializeField] private float moveSpeed;
-	[SerializeField] private float minX;
-	[SerializeField] private float maxX;
+	[SerializeField] private Sprite blueSiren;
+	[SerializeField] private Sprite redSiren;
+	private SpriteRenderer spriteRenderer;
 	private const float offsetFromSide = 0.8f;
 	private const float minY = -4.2f;
 	private const float maxY = 4.2f;
+	private const float minX = -7f;
+	private const float maxX = 0f;
+	private const float sirenTime = .35f;
 	
+	void Start(){
+		spriteRenderer = GetComponent<SpriteRenderer>();
+		StartCoroutine(ChangeSirenColor());
+	}
 	void Update () {
-		minX = Camera.main.ViewportToWorldPoint(Vector3.zero).x + offsetFromSide;
-		maxX = Camera.main.transform.position.x - offsetFromSide;
 		HandleUserInput();
 	}
 
@@ -30,5 +36,15 @@ public class CarController : MonoBehaviour {
 		if (Input.GetKey("down") || Input.GetKey("s")){
 			transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, minY, transform.position.z), moveSpeed * Time.deltaTime);
 		}
+	}
+
+	private IEnumerator ChangeSirenColor(){
+		yield return new WaitForSeconds(sirenTime);
+		if (spriteRenderer.sprite == redSiren){
+			spriteRenderer.sprite = blueSiren;
+		} else {
+			spriteRenderer.sprite = redSiren;
+		}
+		StartCoroutine(ChangeSirenColor());
 	}
 }

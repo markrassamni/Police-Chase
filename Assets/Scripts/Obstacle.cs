@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour {
 
-	[SerializeField] private float moveSpeed;
+	[SerializeField] private float moveSpeed = 3.85f;
 
 	public float MoveSpeed {
 		get{

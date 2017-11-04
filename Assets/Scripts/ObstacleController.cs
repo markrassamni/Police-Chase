@@ -20,8 +20,8 @@ public class ObstacleController : MonoBehaviour {
 	}
 
 	private IEnumerator Spawn(){
-		Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
 		Obstacle randomObstacle = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
+		Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
 		Obstacle obstacle = Instantiate(randomObstacle, randomSpawnPoint) as Obstacle;
 		obstacles.Add(obstacle);
 		yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));

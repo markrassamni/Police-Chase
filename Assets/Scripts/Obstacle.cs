@@ -22,10 +22,4 @@ public class Obstacle : MonoBehaviour {
 	virtual public void Move(){
 		transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
 	}
-
-	void OnTriggerEnter2D(Collider2D other){
-		if (other.tag == "ObstacleDestroyer"){
-			FindObjectOfType<ObstacleController>().DestroyObstacle(this);
-		}
-	}
 }

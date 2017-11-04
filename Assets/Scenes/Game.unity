@@ -259,7 +259,7 @@ Transform:
   m_LocalScale: {x: 17.893532, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &156833612
 MonoBehaviour:
@@ -372,7 +372,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.00001}
 --- !u!1 &533029401
 GameObject:
@@ -580,6 +580,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1557504591}
   - component: {fileID: 1557504592}
+  - component: {fileID: 1557504593}
   m_Layer: 0
   m_Name: ObstacleDestroyer
   m_TagString: ObstacleDestroyer
@@ -598,7 +599,7 @@ Transform:
   m_LocalScale: {x: 7.535955, y: 15.32817, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1557504592
 BoxCollider2D:
@@ -625,6 +626,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &1557504593
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1557504590}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1950072732
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,7 +753,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2008825069
 MonoBehaviour:
@@ -751,6 +772,7 @@ MonoBehaviour:
   - {fileID: 114827463847748396, guid: 4e7083867554c4c4095eeabe17b54329, type: 2}
   - {fileID: 114729148757799790, guid: c60ae35252393429291b690fc49ba6a2, type: 2}
   - {fileID: 114578639887616664, guid: 00a9aca1ee0814568b6c935235cd839d, type: 2}
+  - {fileID: 114370416668367532, guid: cfd201e3caeb141299ccf22993b20bd1, type: 2}
 --- !u!1 &2072658568
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ObstacleController : MonoBehaviour {
 
-	[SerializeField] private float spawnDelay;
+	[SerializeField] private float minSpawnDelay;
+	[SerializeField] private float maxSpawnDelay;
 	[SerializeField] private Obstacle[] obstaclePrefabs;
 	[SerializeField] private Transform[] spawnPoints;
 	private List<Obstacle> obstacles = new List<Obstacle>();
@@ -23,7 +24,7 @@ public class ObstacleController : MonoBehaviour {
 		Obstacle randomObstacle = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
 		Obstacle obstacle = Instantiate(randomObstacle, randomSpawnPoint) as Obstacle;
 		obstacles.Add(obstacle);
-		yield return new WaitForSeconds(spawnDelay);
+		yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
 		StartCoroutine(Spawn());
 	}
 

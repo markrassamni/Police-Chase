@@ -948,7 +948,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74246875d300345d8ab64e972a1930f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnDelay: 7
+  minSpawnDelay: 0.2
+  maxSpawnDelay: 2
   obstaclePrefabs:
   - {fileID: 114827463847748396, guid: 4e7083867554c4c4095eeabe17b54329, type: 2}
   spawnPoints:

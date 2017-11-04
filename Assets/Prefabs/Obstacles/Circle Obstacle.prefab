@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4675969191378664}
   - component: {fileID: 33178444002163512}
   - component: {fileID: 23674132624275212}
-  - component: {fileID: 114827463847748396}
   - component: {fileID: 50173903992558054}
   - component: {fileID: 58588393820557002}
+  - component: {fileID: 114827463847748396}
   m_Layer: 0
   m_Name: Circle Obstacle
   m_TagString: Untagged
@@ -132,3 +132,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3.85
+  spawnPoints:
+  - {fileID: 4270164836963694, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}
+  - {fileID: 4177036993716494, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}
+  - {fileID: 4024465913034580, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}
+  - {fileID: 4391521586362072, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}
+  - {fileID: 4978591796047250, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}
+  - {fileID: 4326644986927540, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}
+  - {fileID: 4389053176961962, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}

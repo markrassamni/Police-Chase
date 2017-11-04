@@ -7,7 +7,6 @@ public class ObstacleController : MonoBehaviour {
 	[SerializeField] private float minSpawnDelay;
 	[SerializeField] private float maxSpawnDelay;
 	[SerializeField] private Obstacle[] obstaclePrefabs;
-	[SerializeField] private Transform[] spawnPoints;
 	private List<Obstacle> obstacles = new List<Obstacle>();
 
 	IEnumerator Start () {
@@ -21,8 +20,8 @@ public class ObstacleController : MonoBehaviour {
 
 	private IEnumerator Spawn(){
 		Obstacle randomObstacle = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
-		Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-		Obstacle obstacle = Instantiate(randomObstacle, randomSpawnPoint) as Obstacle;
+		Vector3 randomSpawnPoint = randomObstacle.SpawnPoints[Random.Range(0, randomObstacle.SpawnPoints.Length)].position;
+		Obstacle obstacle = Instantiate(randomObstacle, randomSpawnPoint, Quaternion.identity, transform);
 		obstacles.Add(obstacle);
 		yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
 		StartCoroutine(Spawn());

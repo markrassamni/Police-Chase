@@ -149,8 +149,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3184db6dac544ae8c019ef4f3c4b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 13
   spawnPoints:
   - {fileID: 4794583177615136, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}
   topTrain: 1
   bottomTrain: 0
+  railPrefab: {fileID: 114516916223617688, guid: 4fdd6d95581e74e66b28b23905f83043,
+    type: 2}
+  minSpawnTime: 1.5
+  maxSpawnTime: 4

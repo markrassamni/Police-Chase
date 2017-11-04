@@ -33,6 +33,10 @@ public class ObstacleController : MonoBehaviour {
 		}
 	}
 
+	public void AddObstacle(Obstacle obstacle){
+		obstacles.Add(obstacle);
+	}
+
 	public void DestroyObstacle(Obstacle obstacle){
 		obstacles.Remove(obstacle);
 		Destroy(obstacle.gameObject);

@@ -1,15 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
 	private static GameManager instance;
 	public static GameManager Instance { get { return instance; } }
-	[SerializeField] private int maxHealth;
-	private int health;
+	[SerializeField] private Sprite[] heartSprites;
+	[SerializeField] private Image heartImage;
+	private const int maxHealth = 3;
+	private int currentHealth;
+	private bool gameOver;
 	
 	public int MaxHealth { get{ return maxHealth; } }
+	public bool GameOver { get{ return gameOver; } }
 
 	void Awake(){
 		if (instance != null && instance != this){
@@ -20,7 +25,8 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Start () {
-		health = maxHealth;
+		currentHealth = maxHealth;
+		heartImage.sprite = heartSprites[currentHealth];
 	}
 	
 	void Update () {
@@ -28,6 +34,19 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void SubtractHealth(int damage){
+		if (currentHealth - damage > 0){
+			currentHealth -= damage;
+		} else {
+			currentHealth = 0;
+			gameOver = true;
+		}
+		heartImage.sprite = heartSprites[currentHealth];
+	}
 
+	public void AddHealth(){
+		if (currentHealth < maxHealth){
+			currentHealth += 1;
+		}
+		heartImage.sprite = heartSprites[currentHealth];
 	}
 }

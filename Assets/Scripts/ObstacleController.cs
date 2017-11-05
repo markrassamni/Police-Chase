@@ -15,7 +15,9 @@ public class ObstacleController : MonoBehaviour {
 	}
 	
 	void Update () {
-		MoveObstacles();
+		if(!GameManager.Instance.GameOver){
+			MoveObstacles();
+		}
 	}
 
 	private IEnumerator Spawn(){
@@ -24,7 +26,9 @@ public class ObstacleController : MonoBehaviour {
 		Obstacle obstacle = Instantiate(randomObstacle, randomSpawnPoint, Quaternion.identity, transform);
 		obstacles.Add(obstacle);
 		yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
-		StartCoroutine(Spawn());
+		if (!GameManager.Instance.GameOver){
+			StartCoroutine(Spawn());
+		}
 	}
 
 	private void MoveObstacles(){

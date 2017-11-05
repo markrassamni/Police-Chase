@@ -20,7 +20,9 @@ public class CarController : MonoBehaviour {
 		StartCoroutine(ChangeSirenColor());
 	}
 	void Update () {
-		HandleUserInput();
+		if (!GameManager.Instance.GameOver){
+			HandleUserInput();
+		}
 	}
 
 	private void HandleUserInput(){
@@ -52,10 +54,12 @@ public class CarController : MonoBehaviour {
 		if (other.tag == "Obstacle"){
 			Obstacle obstacle = other.GetComponentInParent<Obstacle>();
 			int damage = obstacle.Damage;
+			GameManager.Instance.SubtractHealth(damage);
 		} else if (other.tag == "Train"){
 			other.GetComponent<BoxCollider2D>().isTrigger = false;
 			Train train = other.GetComponentInParent<Train>();
 			int damage = train.Damage;
+			GameManager.Instance.SubtractHealth(damage);
 		}
 	}
 }

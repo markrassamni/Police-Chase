@@ -22,6 +22,8 @@ public class Dog : Obstacle {
 			currentSprite = 1;
 		}
 		spriteRenderer.sprite = sprites[currentSprite-1];
-		StartCoroutine(Animate());
+		if (!GameManager.Instance.GameOver){
+			StartCoroutine(Animate());
+		}
 	}
 }

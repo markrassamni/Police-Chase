@@ -12,8 +12,10 @@ public class RoadController : MonoBehaviour {
 	}
 	
 	void Update () {
-		float newOffsetX = Mathf.Repeat(Time.time * moveSpeed, 1);
-		GetComponent<Renderer>().sharedMaterial.SetTextureOffset("_MainTex", new Vector2(newOffsetX, originalOffset.y));
+		if (!GameManager.Instance.GameOver){
+			float newOffsetX = Mathf.Repeat(Time.time * moveSpeed, 1);
+			GetComponent<Renderer>().sharedMaterial.SetTextureOffset("_MainTex", new Vector2(newOffsetX, originalOffset.y));
+		}
 	}
 
 	void OnDisable(){

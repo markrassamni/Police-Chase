@@ -77,6 +77,7 @@ MonoBehaviour:
   - {fileID: 4978591796047250, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}
   - {fileID: 4326644986927540, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}
   - {fileID: 4181803966070200, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}
+  damage: 1
   changeSpriteSpeed: 0.12
   sprites:
   - {fileID: 21300000, guid: 7be547398c5414e058494cb97b41c313, type: 3}

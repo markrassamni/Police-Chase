@@ -20,10 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4215555363792242}
   - component: {fileID: 212829532779679968}
-  - component: {fileID: 70820815202363190}
   m_Layer: 0
   m_Name: Sprite
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,24 +83,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.54}
-  m_Size: {x: 0.5, y: 1}
+  m_Offset: {x: 0, y: 0.39}
+  m_Size: {x: 0.98, y: 1.4}
   m_Direction: 0
---- !u!70 &70820815202363190
-CapsuleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1346389909149000}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0000001961579, y: 0.35450855}
-  m_Size: {x: 1.1200012, y: 0.66249377}
-  m_Direction: 1
 --- !u!114 &114370416668367532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -118,6 +102,7 @@ MonoBehaviour:
   - {fileID: 4177036993716494, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}
   - {fileID: 4391521586362072, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}
   - {fileID: 4326644986927540, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}
+  damage: 0
 --- !u!212 &212829532779679968
 SpriteRenderer:
   m_ObjectHideFlags: 1

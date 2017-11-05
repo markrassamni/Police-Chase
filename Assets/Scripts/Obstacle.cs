@@ -6,6 +6,9 @@ public class Obstacle : MonoBehaviour {
 
 	[SerializeField] private float moveSpeed = 3.85f;
 	[SerializeField] private Transform[] spawnPoints;
+	[SerializeField][Range(0, 10)] private int damage;
+
+	public int Damage { get{ return damage; } }
 
 	public float MoveSpeed{
 		get{

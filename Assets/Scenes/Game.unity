@@ -273,6 +273,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.15
+--- !u!1001 &360449598
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4127504680281378, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127504680281378, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127504680281378, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127504680281378, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127504680281378, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127504680281378, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127504680281378, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127504680281378, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &373149445
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,7 +1064,7 @@ MonoBehaviour:
   obstaclePrefabs:
   - {fileID: 114370416668367532, guid: cfd201e3caeb141299ccf22993b20bd1, type: 2}
   - {fileID: 114729148757799790, guid: c60ae35252393429291b690fc49ba6a2, type: 2}
-  - {fileID: 114578639887616664, guid: 00a9aca1ee0814568b6c935235cd839d, type: 2}
+  - {fileID: 114287811618180718, guid: 00a9aca1ee0814568b6c935235cd839d, type: 2}
   - {fileID: 114130964329218040, guid: d8a6e3b1bce40487c864100eb379204d, type: 2}
   - {fileID: 114600347194428594, guid: 60dbccdded41048e080cd9250dd015b0, type: 2}
 --- !u!1 &2072658568

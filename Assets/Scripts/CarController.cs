@@ -47,4 +47,15 @@ public class CarController : MonoBehaviour {
 		}
 		StartCoroutine(ChangeSirenColor());
 	}
+
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.tag == "Obstacle"){
+			Obstacle obstacle = other.GetComponentInParent<Obstacle>();
+			int damage = obstacle.Damage;
+		} else if (other.tag == "Train"){
+			other.GetComponent<BoxCollider2D>().isTrigger = false;
+			Train train = other.GetComponentInParent<Train>();
+			int damage = train.Damage;
+		}
+	}
 }

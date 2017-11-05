@@ -8,6 +8,9 @@ public class ObstacleDestroyer : MonoBehaviour {
 		if (other.tag == "Obstacle"){
 			Obstacle obstacle = other.GetComponentInParent<Obstacle>();
 			FindObjectOfType<ObstacleController>().DestroyObstacle(obstacle);
+		} else if (other.tag == "Train"){
+			Train train = other.GetComponentInParent<Train>();
+			FindObjectOfType<ObstacleController>().DestroyObstacle(train);
 		}
 	}
 }

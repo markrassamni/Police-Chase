@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61566999520287892}
   m_Layer: 0
   m_Name: Wagon 01
-  m_TagString: Obstacle
+  m_TagString: Train
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 61173069864769590}
   m_Layer: 0
   m_Name: Wagon 03
-  m_TagString: Obstacle
+  m_TagString: Train
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 61506633030377572}
   m_Layer: 0
   m_Name: Train
-  m_TagString: Obstacle
+  m_TagString: Train
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 61052474739881974}
   m_Layer: 0
   m_Name: Wagon 02
-  m_TagString: Obstacle
+  m_TagString: Train
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,6 +278,7 @@ MonoBehaviour:
   moveSpeed: 13
   spawnPoints:
   - {fileID: 4794583177615136, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}
+  damage: 0
   topTrain: 1
   bottomTrain: 0
   railPrefab: {fileID: 114516916223617688, guid: 4fdd6d95581e74e66b28b23905f83043,

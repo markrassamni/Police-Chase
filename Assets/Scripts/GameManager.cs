@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	private void Pause(){
+	public void Pause(){
 		paused = !paused;
         if(paused){
             Time.timeScale = 0f;

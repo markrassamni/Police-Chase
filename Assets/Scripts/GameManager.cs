@@ -9,12 +9,17 @@ public class GameManager : MonoBehaviour {
 	public static GameManager Instance { get { return instance; } }
 	[SerializeField] private Sprite[] heartSprites;
 	[SerializeField] private Image heartImage;
+	[SerializeField] private GameObject pausePanel;
+	[SerializeField] private GameObject gameOverPanel;
 	private const int maxHealth = 3;
 	private int currentHealth;
 	private bool gameOver;
+	private bool paused;
+	private const float timeForLosePanel = 1.5f;
 	
 	public int MaxHealth { get{ return maxHealth; } }
 	public bool GameOver { get{ return gameOver; } }
+	public bool Paused { get { return Paused; } }
 
 	void Awake(){
 		if (instance != null && instance != this){
@@ -30,7 +35,9 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	void Update () {
-		
+		if (Input.GetKeyDown(KeyCode.Escape)){
+			Pause();
+		}
 	}
 
 	public void SubtractHealth(int damage){
@@ -38,7 +45,7 @@ public class GameManager : MonoBehaviour {
 			currentHealth -= damage;
 		} else {
 			currentHealth = 0;
-			gameOver = true;
+			EndGame();
 		}
 		heartImage.sprite = heartSprites[currentHealth];
 	}
@@ -51,5 +58,26 @@ public class GameManager : MonoBehaviour {
 		} else {
 			return false;
 		}
+	}
+
+	private void Pause(){
+		paused = !paused;
+        if(paused){
+            Time.timeScale = 0f;
+            pausePanel.SetActive(true);
+        } else {
+            Time.timeScale = 1f;
+            pausePanel.SetActive(false);
+        }
+	}
+
+	private void EndGame(){
+		gameOver = true;
+		Invoke("ShowGameOverPanel", timeForLosePanel);
+	}
+
+	public void ShowGameOverPanel(){
+		// Show after set time, or when car leaves screen, whichever comes first
+		gameOverPanel.SetActive(true);
 	}
 }

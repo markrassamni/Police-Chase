@@ -11,7 +11,7 @@ public class CarController : MonoBehaviour {
 	private const float minY = -4.2f;
 	private const float maxY = 4.2f;
 	private const float minX = -7f;
-	private const float maxX = 0f;
+	private const float maxX = 7f;
 	private const float sirenTime = .35f;
 	
 	void Start(){
@@ -20,6 +20,8 @@ public class CarController : MonoBehaviour {
 	void Update () {
 		if (!GameManager.Instance.GameOver){
 			HandleUserInput();
+		} else {
+			GameOver();
 		}
 	}
 
@@ -65,6 +67,12 @@ public class CarController : MonoBehaviour {
 			if (GameManager.Instance.AddHealth()){
 				FindObjectOfType<ObstacleController>().DestroyObstacle(obstacle);
 			}
+		} else if (other.tag == "GameOver"){
+			GameManager.Instance.ShowGameOverPanel();
 		}
+	}
+
+	public void GameOver(){
+		transform.position = Vector3.MoveTowards(transform.position, new Vector3(-50f, transform.position.y, transform.position.z), 3.85f * Time.deltaTime);
 	}
 }

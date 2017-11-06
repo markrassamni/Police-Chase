@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3184db6dac544ae8c019ef4f3c4b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 13
+  moveSpeed: 15
   spawnPoints:
   - {fileID: 4389053176961962, guid: 7e9cb7dd6147e47e48e30e1270abc447, type: 2}
   damage: 3
@@ -283,7 +283,7 @@ MonoBehaviour:
   bottomTrain: 1
   railPrefab: {fileID: 114516916223617688, guid: 4fdd6d95581e74e66b28b23905f83043,
     type: 2}
-  minSpawnTime: 1.5
+  minSpawnTime: 1
   maxSpawnTime: 4
   wagons:
   - {fileID: 1359725124898912}

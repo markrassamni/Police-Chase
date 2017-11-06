@@ -15,9 +15,7 @@ public class ObstacleController : MonoBehaviour {
 	}
 	
 	void Update () {
-		if(!GameManager.Instance.GameOver){
-			MoveObstacles();
-		}
+		MoveObstacles();
 	}
 
 	private IEnumerator Spawn(){

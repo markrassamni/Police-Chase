@@ -8,7 +8,7 @@ public class Train : Obstacle {
 	[SerializeField] private bool bottomTrain;
 	[SerializeField] private Obstacle railPrefab;
 	[SerializeField] private float minSpawnTime;
-	[SerializeField] private float maxSpawnTime = 1.5f;
+	[SerializeField] private float maxSpawnTime;
 	[SerializeField] private GameObject[] wagons;
 
 	private bool startedMoving;

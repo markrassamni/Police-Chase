@@ -7,7 +7,6 @@ public class CarController : MonoBehaviour {
 	[SerializeField] private float moveSpeed;
 	[SerializeField] private Sprite blueSiren;
 	[SerializeField] private Sprite redSiren;
-	private SpriteRenderer spriteRenderer;
 	private const float offsetFromSide = 0.8f;
 	private const float minY = -4.2f;
 	private const float maxY = 4.2f;
@@ -16,7 +15,6 @@ public class CarController : MonoBehaviour {
 	private const float sirenTime = .35f;
 	
 	void Start(){
-		spriteRenderer = GetComponent<SpriteRenderer>();
 		StartCoroutine(ChangeSirenColor());
 	}
 	void Update () {
@@ -41,6 +39,7 @@ public class CarController : MonoBehaviour {
 	}
 
 	private IEnumerator ChangeSirenColor(){
+		SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
 		yield return new WaitForSeconds(sirenTime);
 		if (spriteRenderer.sprite == redSiren){
 			spriteRenderer.sprite = blueSiren;
@@ -54,12 +53,18 @@ public class CarController : MonoBehaviour {
 		if (other.tag == "Obstacle"){
 			Obstacle obstacle = other.GetComponentInParent<Obstacle>();
 			int damage = obstacle.Damage;
+			FindObjectOfType<ObstacleController>().DestroyObstacle(obstacle);
 			GameManager.Instance.SubtractHealth(damage);
 		} else if (other.tag == "Train"){
 			other.GetComponent<BoxCollider2D>().isTrigger = false;
 			Train train = other.GetComponentInParent<Train>();
 			int damage = train.Damage;
 			GameManager.Instance.SubtractHealth(damage);
+		} else if (other.tag == "Heart"){
+			Obstacle obstacle = other.GetComponent<Obstacle>();
+			if (GameManager.Instance.AddHealth()){
+				FindObjectOfType<ObstacleController>().DestroyObstacle(obstacle);
+			}
 		}
 	}
 }

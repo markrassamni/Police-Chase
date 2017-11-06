@@ -43,10 +43,13 @@ public class GameManager : MonoBehaviour {
 		heartImage.sprite = heartSprites[currentHealth];
 	}
 
-	public void AddHealth(){
+	public bool AddHealth(){
 		if (currentHealth < maxHealth){
 			currentHealth += 1;
+			heartImage.sprite = heartSprites[currentHealth];
+			return true;
+		} else {
+			return false;
 		}
-		heartImage.sprite = heartSprites[currentHealth];
 	}
 }

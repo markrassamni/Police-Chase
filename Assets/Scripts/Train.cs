@@ -41,7 +41,7 @@ public class Train : Obstacle {
 
 	private void SpawnRail(){
 		ObstacleController obstacleController = FindObjectOfType<ObstacleController>();
-		Obstacle rail = Instantiate(railPrefab, new Vector3(transform.position.x, 0f, transform.position.z), railPrefab.transform.rotation, obstacleController.transform);
+		Obstacle rail = Instantiate(railPrefab, new Vector3(transform.position.x, 0f, railPrefab.transform.position.z), railPrefab.transform.rotation, obstacleController.transform);
 		transform.parent = rail.transform;
 		obstacleController.AddObstacle(rail);
 	}

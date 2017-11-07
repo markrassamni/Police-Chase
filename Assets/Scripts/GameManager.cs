@@ -18,7 +18,8 @@ public class GameManager : MonoBehaviour {
 	private int currentHealth;
 	private bool gameOver;
 	private bool paused;
-	private const float timeForEndPanel = 1f;
+	private const float timeForEndPanel = .7f;
+	private const float criminalSpawnTime = 30f;
 	
 	public int MaxHealth { get{ return maxHealth; } }
 	public bool GameOver { get{ return gameOver; } }
@@ -32,9 +33,11 @@ public class GameManager : MonoBehaviour {
         }
 	}
 
-	void Start () {
+	IEnumerator Start () {
 		currentHealth = maxHealth;
 		heartImage.sprite = heartSprites[currentHealth];
+		yield return new WaitForSeconds(criminalSpawnTime);
+		SpawnCriminal();
 	}
 	
 	void Update () {
@@ -99,6 +102,6 @@ public class GameManager : MonoBehaviour {
 	private void SpawnCriminal(){
 		Criminal criminal = criminalPrefab.GetComponent<Criminal>();
 		Transform spawnPoint = criminal.SpawnPoints[Random.Range(0, criminal.SpawnPoints.Length)];
-		Instantiate(criminalPrefab, spawnPoint.position, criminalPrefab.transform.rotation);
+		Instantiate(criminalPrefab, new Vector3(spawnPoint.position.x, spawnPoint.position.y, criminalPrefab.transform.position.z), criminalPrefab.transform.rotation);
 	}
 }

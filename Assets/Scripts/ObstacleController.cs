@@ -21,7 +21,7 @@ public class ObstacleController : MonoBehaviour {
 	private IEnumerator Spawn(){
 		Obstacle randomObstacle = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
 		Vector3 randomSpawnPoint = randomObstacle.SpawnPoints[Random.Range(0, randomObstacle.SpawnPoints.Length)].position;
-		Obstacle obstacle = Instantiate(randomObstacle, randomSpawnPoint, Quaternion.identity, transform);
+		Obstacle obstacle = Instantiate(randomObstacle, new Vector3(randomSpawnPoint.x, randomSpawnPoint.y, randomObstacle.transform.position.z), Quaternion.identity, transform);
 		obstacles.Add(obstacle);
 		yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
 		if (!GameManager.Instance.GameOver){

@@ -52,6 +52,7 @@ public class CarController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
+		print(other.name);
 		if (other.tag == "Obstacle"){
 			Obstacle obstacle = other.GetComponentInParent<Obstacle>();
 			int damage = obstacle.Damage;
@@ -73,6 +74,7 @@ public class CarController : MonoBehaviour {
 		} else if (other.tag == "Criminal"){
 			Criminal criminal = other.GetComponent<Criminal>();
 			criminal.GetComponent<PolygonCollider2D>().isTrigger = false;
+			GameManager.Instance.WinGame();
 		}
 	}
 

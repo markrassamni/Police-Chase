@@ -20,4 +20,8 @@ public class SceneController : MonoBehaviour {
 	public void LoadCredits(){
 		SceneManager.LoadScene("Credits");
 	}
+
+	public void LoadTutorial(){
+		SceneManager.LoadScene("Tutorial");
+	}
 }

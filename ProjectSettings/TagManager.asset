@@ -9,6 +9,7 @@ TagManager:
   - Train
   - Heart
   - GameOver
+  - Criminal
   layers:
   - Default
   - TransparentFX

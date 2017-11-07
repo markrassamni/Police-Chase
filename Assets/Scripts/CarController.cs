@@ -69,6 +69,8 @@ public class CarController : MonoBehaviour {
 			}
 		} else if (other.tag == "GameOver"){
 			GameManager.Instance.ShowGameOverPanel();
+		} else if (other.tag == "Criminal"){
+			
 		}
 	}
 

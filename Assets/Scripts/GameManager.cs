@@ -10,12 +10,15 @@ public class GameManager : MonoBehaviour {
 	[SerializeField] private Sprite[] heartSprites;
 	[SerializeField] private Image heartImage;
 	[SerializeField] private GameObject pausePanel;
-	[SerializeField] private GameObject gameOverPanel;
+	[SerializeField] private GameObject endPanel;
+	[SerializeField] private Text winLoseText;
+	[SerializeField] private Text tipText;
+	[SerializeField] private GameObject criminalPrefab;
 	private const int maxHealth = 3;
 	private int currentHealth;
 	private bool gameOver;
 	private bool paused;
-	private const float timeForLosePanel = 1.5f;
+	private const float timeForEndPanel = 1f;
 	
 	public int MaxHealth { get{ return maxHealth; } }
 	public bool GameOver { get{ return gameOver; } }
@@ -45,7 +48,7 @@ public class GameManager : MonoBehaviour {
 			currentHealth -= damage;
 		} else {
 			currentHealth = 0;
-			EndGame();
+			LoseGame();
 		}
 		heartImage.sprite = heartSprites[currentHealth];
 	}
@@ -71,13 +74,31 @@ public class GameManager : MonoBehaviour {
         }
 	}
 
-	private void EndGame(){
+	public void LoseGame(){
 		gameOver = true;
-		Invoke("ShowGameOverPanel", timeForLosePanel);
+		winLoseText.text = "Game Over";
+		Invoke("ShowGameOverPanel", timeForEndPanel);
 	}
 
 	public void ShowGameOverPanel(){
 		// Show after set time, or when car leaves screen, whichever comes first
-		gameOverPanel.SetActive(true);
+		endPanel.SetActive(true);
+	}
+
+	public void SetTipText(string tip){
+		tipText.gameObject.SetActive(true);
+		tipText.text = tip;
+	}
+
+	public void WinGame(){
+		gameOver = true;
+		winLoseText.text = "You Win!";
+		Invoke("ShowGameOverPanel", timeForEndPanel);
+	}
+
+	private void SpawnCriminal(){
+		Criminal criminal = criminalPrefab.GetComponent<Criminal>();
+		Transform spawnPoint = criminal.SpawnPoints[Random.Range(0, criminal.SpawnPoints.Length)];
+		Instantiate(criminalPrefab, spawnPoint.position, criminalPrefab.transform.rotation);
 	}
 }

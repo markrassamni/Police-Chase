@@ -62,6 +62,7 @@ public class CarController : MonoBehaviour {
 			Train train = other.GetComponentInParent<Train>();
 			int damage = train.Damage;
 			GameManager.Instance.SubtractHealth(damage);
+			GameManager.Instance.SetTipText("Tip: Running into a train instantly kills you.");
 		} else if (other.tag == "Heart"){
 			Obstacle obstacle = other.GetComponent<Obstacle>();
 			if (GameManager.Instance.AddHealth()){
@@ -70,7 +71,8 @@ public class CarController : MonoBehaviour {
 		} else if (other.tag == "GameOver"){
 			GameManager.Instance.ShowGameOverPanel();
 		} else if (other.tag == "Criminal"){
-			
+			Criminal criminal = other.GetComponent<Criminal>();
+			criminal.GetComponent<PolygonCollider2D>().isTrigger = false;
 		}
 	}
 

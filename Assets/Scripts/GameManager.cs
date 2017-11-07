@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
 	private bool gameOver;
 	private bool paused;
 	private const float timeForEndPanel = .7f;
-	private const float criminalSpawnTime = 3f;
+	private const float criminalSpawnTime = 45f;
 	private bool gameWon = false;
 	
 	public int MaxHealth { get{ return maxHealth; } }
@@ -94,7 +94,6 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void SetTipText(string tip){
-		tipText.gameObject.SetActive(true);
 		tipText.text = tip;
 	}
 

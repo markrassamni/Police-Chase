@@ -19,11 +19,13 @@ public class GameManager : MonoBehaviour {
 	private bool gameOver;
 	private bool paused;
 	private const float timeForEndPanel = .7f;
-	private const float criminalSpawnTime = 30f;
+	private const float criminalSpawnTime = 3f;
+	private bool gameWon = false;
 	
 	public int MaxHealth { get{ return maxHealth; } }
 	public bool GameOver { get{ return gameOver; } }
 	public bool Paused { get { return Paused; } }
+	public bool GameWon { get { return gameWon; } }
 
 	void Awake(){
 		if (instance != null && instance != this){
@@ -41,19 +43,21 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.Escape)){
+		if (Input.GetKeyDown(KeyCode.Escape) && !gameOver && !gameWon){
 			Pause();
 		}
 	}
 
 	public void SubtractHealth(int damage){
-		if (currentHealth - damage > 0){
-			currentHealth -= damage;
-		} else {
-			currentHealth = 0;
-			LoseGame();
+		if (!gameWon){
+			if (currentHealth - damage > 0){
+				currentHealth -= damage;
+			} else {
+				currentHealth = 0;
+				LoseGame();
+			}
+			heartImage.sprite = heartSprites[currentHealth];
 		}
-		heartImage.sprite = heartSprites[currentHealth];
 	}
 
 	public bool AddHealth(){
@@ -85,6 +89,7 @@ public class GameManager : MonoBehaviour {
 
 	public void ShowGameOverPanel(){
 		// Show after set time, or when car leaves screen, whichever comes first
+		gameOver = true;
 		endPanel.SetActive(true);
 	}
 
@@ -94,7 +99,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void WinGame(){
-		gameOver = true;
+		gameWon = true;
 		winLoseText.text = "You Win!";
 		Invoke("ShowGameOverPanel", timeForEndPanel);
 	}

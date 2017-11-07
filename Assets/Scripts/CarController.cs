@@ -52,29 +52,32 @@ public class CarController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		print(other.name);
-		if (other.tag == "Obstacle"){
-			Obstacle obstacle = other.GetComponentInParent<Obstacle>();
-			int damage = obstacle.Damage;
-			FindObjectOfType<ObstacleController>().DestroyObstacle(obstacle);
-			GameManager.Instance.SubtractHealth(damage);
-		} else if (other.tag == "Train"){
-			other.GetComponent<BoxCollider2D>().isTrigger = false;
-			Train train = other.GetComponentInParent<Train>();
-			int damage = train.Damage;
-			GameManager.Instance.SubtractHealth(damage);
-			GameManager.Instance.SetTipText("Tip: Running into a train instantly kills you.");
-		} else if (other.tag == "Heart"){
-			Obstacle obstacle = other.GetComponent<Obstacle>();
-			if (GameManager.Instance.AddHealth()){
+		if (!GameManager.Instance.GameOver && ! GameManager.Instance.GameWon){
+			if (other.tag == "Obstacle"){
+				Obstacle obstacle = other.GetComponentInParent<Obstacle>();
+				int damage = obstacle.Damage;
 				FindObjectOfType<ObstacleController>().DestroyObstacle(obstacle);
+				GameManager.Instance.SubtractHealth(damage);
+			} else if (other.tag == "Train"){
+				other.GetComponent<BoxCollider2D>().isTrigger = false;
+				Train train = other.GetComponentInParent<Train>();
+				int damage = train.Damage;
+				GameManager.Instance.SubtractHealth(damage);
+				GameManager.Instance.SetTipText("Tip: Running into a train instantly kills you.");
+			} else if (other.tag == "Heart"){
+				Obstacle obstacle = other.GetComponent<Obstacle>();
+				if (GameManager.Instance.AddHealth()){
+					FindObjectOfType<ObstacleController>().DestroyObstacle(obstacle);
+				}
+			} else if (other.tag == "GameOver"){
+				GameManager.Instance.ShowGameOverPanel();
+			} else if (other.tag == "Criminal"){
+				Criminal criminal = other.GetComponent<Criminal>();
+				criminal.GetComponent<PolygonCollider2D>().isTrigger = false;
+				GameManager.Instance.WinGame();
+				criminal.SetMoveSpeedToRoadSpeed();
+				GetComponent<Rigidbody2D>().isKinematic = true;
 			}
-		} else if (other.tag == "GameOver"){
-			GameManager.Instance.ShowGameOverPanel();
-		} else if (other.tag == "Criminal"){
-			Criminal criminal = other.GetComponent<Criminal>();
-			criminal.GetComponent<PolygonCollider2D>().isTrigger = false;
-			GameManager.Instance.WinGame();
 		}
 	}
 

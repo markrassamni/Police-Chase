@@ -25,4 +25,8 @@ public class Obstacle : MonoBehaviour {
 	virtual public void Move(){
 		transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
 	}
+
+	public void SetMoveSpeedToRoadSpeed(){
+		moveSpeed = 3.85f;
+	}
 }

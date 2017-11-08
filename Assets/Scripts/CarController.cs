@@ -10,12 +10,18 @@ public class CarController : MonoBehaviour {
 	private const float offsetFromSide = 0.8f;
 	private const float minY = -4.2f;
 	private const float maxY = 4.2f;
-	private const float minX = -7f;
-	private const float maxX = 7f;
+	private  float minX = -7f;
+	private  float maxX = 7f;
 	private const float sirenTime = .35f;
 	
 	void Start(){
 		StartCoroutine(ChangeSirenColor());
+		float verticalBound = Camera.main.GetComponent<Camera>().orthographicSize; 
+        float horizontalBound = verticalBound * Screen.width / Screen.height;
+		float carLength = GetComponent<BoxCollider2D>().size.x;
+		minX = -horizontalBound + carLength + .35f;
+		maxX = horizontalBound - carLength;
+		transform.position = new Vector3(minX, 0f, transform.position.z);
 	}
 	void Update () {
 		if (!GameManager.Instance.GameOver){

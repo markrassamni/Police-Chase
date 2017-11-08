@@ -781,9 +781,9 @@ GameObject:
   m_Component:
   - component: {fileID: 527058353}
   - component: {fileID: 527058350}
-  - component: {fileID: 527058349}
-  - component: {fileID: 527058352}
   - component: {fileID: 527058351}
+  - component: {fileID: 527058352}
+  - component: {fileID: 527058349}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -805,6 +805,8 @@ MonoBehaviour:
   moveSpeed: 5
   blueSiren: {fileID: 21300000, guid: a62c426dad43d43d783dd626042fe0b2, type: 3}
   redSiren: {fileID: 21300000, guid: dbd3dcddb4e074f119de64acafb22c83, type: 3}
+  minX: -7
+  maxX: 7
 --- !u!212 &527058350
 SpriteRenderer:
   m_ObjectHideFlags: 0

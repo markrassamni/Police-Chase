@@ -70,11 +70,6 @@ public class CarController : MonoBehaviour {
 				int damage = train.Damage;
 				GameManager.Instance.SubtractHealth(damage);
 				GameManager.Instance.SetTipText("Tip: Running into a train instantly kills you.");
-			} else if (other.tag == "Heart"){
-				Obstacle obstacle = other.GetComponent<Obstacle>();
-				if (GameManager.Instance.AddHealth()){
-					FindObjectOfType<ObstacleController>().DestroyObstacle(obstacle);
-				}
 			} else if (other.tag == "GameOver"){
 				GameManager.Instance.ShowGameOverPanel();
 			} else if (other.tag == "Criminal"){
@@ -83,6 +78,17 @@ public class CarController : MonoBehaviour {
 				GameManager.Instance.WinGame();
 				criminal.SetMoveSpeedToRoadSpeed();
 				GetComponent<Rigidbody2D>().isKinematic = true;
+			}
+		}
+	}
+
+	void OnTriggerStay2D(Collider2D other){
+		if (!GameManager.Instance.GameOver && ! GameManager.Instance.GameWon){
+			if (other.tag == "Heart"){
+				Obstacle obstacle = other.GetComponent<Obstacle>();
+				if (GameManager.Instance.AddHealth()){
+					FindObjectOfType<ObstacleController>().DestroyObstacle(obstacle);
+				}
 			}
 		}
 	}

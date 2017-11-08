@@ -24,4 +24,12 @@ public class SceneController : MonoBehaviour {
 	public void LoadTutorial(){
 		SceneManager.LoadScene("Tutorial");
 	}
+
+	public void ExitGame(){
+		#if UNITY_EDITOR
+			UnityEditor.EditorApplication.isPlaying = false;
+		#elif UNITY_STANDALONE
+			Application.Quit();
+		#endif
+	}
 }

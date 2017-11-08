@@ -65,7 +65,7 @@ public class CarController : MonoBehaviour {
 				FindObjectOfType<ObstacleController>().DestroyObstacle(obstacle);
 				GameManager.Instance.SubtractHealth(damage);
 			} else if (other.tag == "Train"){
-				other.GetComponent<BoxCollider2D>().isTrigger = false;
+				other.GetComponent<Collider2D>().isTrigger = false;
 				Train train = other.GetComponentInParent<Train>();
 				int damage = train.Damage;
 				GameManager.Instance.SubtractHealth(damage);
@@ -74,7 +74,7 @@ public class CarController : MonoBehaviour {
 				GameManager.Instance.ShowGameOverPanel();
 			} else if (other.tag == "Criminal"){
 				Criminal criminal = other.GetComponent<Criminal>();
-				criminal.GetComponent<PolygonCollider2D>().isTrigger = false;
+				criminal.GetComponent<Collider2D>().isTrigger = false;
 				GameManager.Instance.WinGame();
 				criminal.SetMoveSpeedToRoadSpeed();
 				GetComponent<Rigidbody2D>().isKinematic = true;

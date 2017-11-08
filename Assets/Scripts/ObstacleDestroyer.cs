@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObstacleDestroyer : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
-		if (other.tag == "Obstacle"){
+		if (other.tag == "Obstacle" || other.tag == "Heart"){
 			Obstacle obstacle = other.GetComponentInParent<Obstacle>();
 			FindObjectOfType<ObstacleController>().DestroyObstacle(obstacle);
 		} else if (other.tag == "Train"){

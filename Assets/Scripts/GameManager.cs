@@ -99,6 +99,7 @@ public class GameManager : MonoBehaviour {
 
 	public void WinGame(){
 		gameWon = true;
+		tipText.enabled = false;
 		winLoseText.text = "You Win!";
 		Invoke("ShowGameOverPanel", timeForEndPanel);
 	}

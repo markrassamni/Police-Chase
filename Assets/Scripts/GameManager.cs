@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour {
-
-	private static GameManager instance;
-	public static GameManager Instance { get { return instance; } }
+public class GameManager : Singleton<GameManager> {
+	
 	[SerializeField] private Sprite[] heartSprites;
 	[SerializeField] private Image heartImage;
 	[SerializeField] private GameObject pausePanel;
@@ -14,6 +12,7 @@ public class GameManager : MonoBehaviour {
 	[SerializeField] private Text winLoseText;
 	[SerializeField] private Text tipText;
 	[SerializeField] private GameObject criminalPrefab;
+	[SerializeField] private SceneController sceneController;
 	private const int maxHealth = 3;
 	private int currentHealth;
 	private bool gameOver;
@@ -26,14 +25,6 @@ public class GameManager : MonoBehaviour {
 	public bool GameOver { get{ return gameOver; } }
 	public bool Paused { get { return Paused; } }
 	public bool GameWon { get { return gameWon; } }
-
-	void Awake(){
-		if (instance != null && instance != this){
-            Destroy(this.gameObject);
-        } else {
-            instance = this;
-        }
-	}
 
 	IEnumerator Start () {
 		currentHealth = maxHealth;
@@ -71,6 +62,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void Pause(){
+		//TODO Dont let pause when game over/won?maybe
 		paused = !paused;
         if(paused){
             Time.timeScale = 0f;
@@ -79,6 +71,13 @@ public class GameManager : MonoBehaviour {
             Time.timeScale = 1f;
             pausePanel.SetActive(false);
         }
+	}
+
+	public void GoToMenu(){
+		if(paused){
+			Pause();
+		}
+		sceneController.LoadMenu();
 	}
 
 	public void LoseGame(){

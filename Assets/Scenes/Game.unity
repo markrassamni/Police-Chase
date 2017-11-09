@@ -805,8 +805,6 @@ MonoBehaviour:
   moveSpeed: 5
   blueSiren: {fileID: 21300000, guid: a62c426dad43d43d783dd626042fe0b2, type: 3}
   redSiren: {fileID: 21300000, guid: dbd3dcddb4e074f119de64acafb22c83, type: 3}
-  minX: -7
-  maxX: 7
 --- !u!212 &527058350
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1732,9 +1730,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114460069963173340, guid: 19ec4642150204e6a83c4520b5f91bdb,
-          type: 2}
-        m_MethodName: LoadMenu
+      - m_Target: {fileID: 1580140249}
+        m_MethodName: GoToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1904,6 +1901,8 @@ MonoBehaviour:
   winLoseText: {fileID: 681324357}
   tipText: {fileID: 1179618266}
   criminalPrefab: {fileID: 1503388031282862, guid: d8a1ebc77c62c4fd18384319f4763ea9,
+    type: 2}
+  sceneController: {fileID: 114460069963173340, guid: 19ec4642150204e6a83c4520b5f91bdb,
     type: 2}
 --- !u!4 &1580140250
 Transform:

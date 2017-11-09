@@ -62,15 +62,16 @@ public class GameManager : Singleton<GameManager> {
 	}
 
 	public void Pause(){
-		//TODO Dont let pause when game over/won?maybe
-		paused = !paused;
-        if(paused){
-            Time.timeScale = 0f;
-            pausePanel.SetActive(true);
-        } else {
-            Time.timeScale = 1f;
-            pausePanel.SetActive(false);
-        }
+		if(!gameOver) {
+			paused = !paused;
+			if(paused){
+				Time.timeScale = 0f;
+				pausePanel.SetActive(true);
+			} else {
+				Time.timeScale = 1f;
+				pausePanel.SetActive(false);
+			}
+		}
 	}
 
 	public void GoToMenu(){

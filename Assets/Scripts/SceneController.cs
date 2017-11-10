@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneController : MonoBehaviour {
+public class SceneController : Singleton<SceneController> {
+
+	override protected void Awake(){
+		base.Awake();
+		DontDestroyOnLoad(this);
+	}
 
 	public void LoadGame(){
 		SceneManager.LoadScene("Game");

@@ -12,7 +12,7 @@ public class GameManager : Singleton<GameManager> {
 	[SerializeField] private Text winLoseText;
 	[SerializeField] private Text tipText;
 	[SerializeField] private GameObject criminalPrefab;
-	[SerializeField] private SceneController sceneController;
+	private SceneController sceneController;
 	private const int maxHealth = 3;
 	private int currentHealth;
 	private bool gameOver;
@@ -29,6 +29,7 @@ public class GameManager : Singleton<GameManager> {
 	IEnumerator Start () {
 		currentHealth = maxHealth;
 		heartImage.sprite = heartSprites[currentHealth];
+		sceneController = FindObjectOfType<SceneController>();
 		yield return new WaitForSeconds(criminalSpawnTime);
 		SpawnCriminal();
 	}

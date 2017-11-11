@@ -7,7 +7,6 @@ public class CarController : MonoBehaviour {
 	[SerializeField] private float moveSpeed;
 	[SerializeField] private Sprite blueSiren;
 	[SerializeField] private Sprite redSiren;
-	private const float offsetFromSide = 0.8f;
 	private const float minY = -4.2f;
 	private const float maxY = 4.2f;
 	private  float minX = -7f;

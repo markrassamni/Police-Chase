@@ -16,11 +16,8 @@ public class SoundController : Singleton<SoundController> {
 	void Start () {
 		musicSource = GetComponent<AudioSource>();
 		musicSource.clip = menuMusic;
+		musicSource.volume = PlayerPrefsManager.GetVolume();
 		musicSource.Play();
-	}
-	
-	void Update () {
-		musicSource.volume = .8f; //TODO: Player prefs volume
 	}
 
 	public void PlayMenuMusic(){
@@ -33,6 +30,10 @@ public class SoundController : Singleton<SoundController> {
 		musicSource.Stop();
 		musicSource.clip = gameMusic;
 		musicSource.Play();
+	}
+
+	public void SetVolume(float volume){
+		musicSource.volume = volume;
 	}
 
 }

@@ -22,6 +22,8 @@ public class SceneController : Singleton<SceneController> {
 			SoundController.Instance.PlayMenuMusic();
 		} else if (previousSceneName == "MainMenu" && nextScene.name == "Game"){
 			SoundController.Instance.PlayGameMusic();
+		} else if (previousSceneName == "Options"){
+			PlayerPrefs.Save();
 		}
 		previousSceneName = nextScene.name; 
 	}

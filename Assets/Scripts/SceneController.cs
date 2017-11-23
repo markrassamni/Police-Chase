@@ -5,9 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : Singleton<SceneController> {
 
+	private string previousSceneName;
+
 	override protected void Awake(){
 		base.Awake();
 		DontDestroyOnLoad(this);
+	}
+
+	void Start(){
+		SceneManager.sceneLoaded += OnSceneLoaded;
+		previousSceneName = SceneManager.GetActiveScene().name;
+	}
+	
+	private void OnSceneLoaded(Scene nextScene, LoadSceneMode mode){
+		if(previousSceneName == "Game" && nextScene.name == "MainMenu"){
+			SoundController.Instance.PlayMenuMusic();
+		} else if (previousSceneName == "MainMenu" && nextScene.name == "Game"){
+			SoundController.Instance.PlayGameMusic();
+		}
+		previousSceneName = nextScene.name; 
 	}
 
 	public void LoadGame(){
@@ -33,7 +49,7 @@ public class SceneController : Singleton<SceneController> {
 	public void ExitGame(){
 		#if UNITY_EDITOR
 			UnityEditor.EditorApplication.isPlaying = false;
-		#elif UNITY_STANDALONE
+		#else
 			Application.Quit();
 		#endif
 	}

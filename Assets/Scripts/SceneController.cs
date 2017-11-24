@@ -20,8 +20,6 @@ public class SceneController : Singleton<SceneController> {
 	private void OnSceneLoaded(Scene nextScene, LoadSceneMode mode){
 		if(previousSceneName == "Game" && nextScene.name == "MainMenu"){
 			SoundController.Instance.PlayMenuMusic();
-		} else if (previousSceneName == "MainMenu" && nextScene.name == "Game"){
-			SoundController.Instance.PlayGameMusic();
 		} else if (previousSceneName == "Options"){
 			PlayerPrefs.Save();
 		}
@@ -30,6 +28,7 @@ public class SceneController : Singleton<SceneController> {
 
 	public void LoadGame(){
 		SceneManager.LoadScene("Game");
+		SoundController.Instance.PlayGameMusic();
 	}
 
 	public void LoadMenu(){

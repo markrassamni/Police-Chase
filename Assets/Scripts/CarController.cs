@@ -15,6 +15,7 @@ public class CarController : MonoBehaviour {
 	
 	void Start(){
 		StartCoroutine(ChangeSirenColor());
+		SoundController.Instance.SetSfxSource(GetComponent<AudioSource>());
 		float verticalBound = Camera.main.GetComponent<Camera>().orthographicSize; 
         float horizontalBound = verticalBound * Screen.width / Screen.height;
 		float carLength = GetComponent<BoxCollider2D>().size.x;
@@ -60,10 +61,16 @@ public class CarController : MonoBehaviour {
 		if (!GameManager.Instance.GameOver && ! GameManager.Instance.GameWon){
 			if (other.tag == "Obstacle"){
 				Obstacle obstacle = other.GetComponentInParent<Obstacle>();
+				if(obstacle.GetComponent<Dog>() != null){
+					SoundController.Instance.PlayDogBark();
+				} else {
+					SoundController.Instance.PlayDamage();
+				}
 				int damage = obstacle.Damage;
-				FindObjectOfType<ObstacleController>().DestroyObstacle(obstacle);
 				GameManager.Instance.SubtractHealth(damage);
+				FindObjectOfType<ObstacleController>().DestroyObstacle(obstacle);
 			} else if (other.tag == "Train"){
+				SoundController.Instance.PlayTrainHorn();
 				other.GetComponent<Collider2D>().isTrigger = false;
 				Train train = other.GetComponentInParent<Train>();
 				int damage = train.Damage;
@@ -87,6 +94,7 @@ public class CarController : MonoBehaviour {
 				Obstacle obstacle = other.GetComponent<Obstacle>();
 				if (GameManager.Instance.AddHealth()){
 					FindObjectOfType<ObstacleController>().DestroyObstacle(obstacle);
+					SoundController.Instance.PlayHeal();
 				}
 			}
 		}

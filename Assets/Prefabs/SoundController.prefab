@@ -54,7 +54,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -134,3 +134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuMusic: {fileID: 8300000, guid: 88e55961d17d641c681da48f482bf018, type: 3}
   gameMusic: {fileID: 8300000, guid: 59875f9dce9064cc78365dd05623ca71, type: 3}
+  dogBarkClip: {fileID: 8300000, guid: 3d8926305b45e414e800d0f366c6ca81, type: 3}
+  trainHornClip: {fileID: 8300000, guid: ec7cde5b2404d449a9c34139b788f52b, type: 3}
+  healClip: {fileID: 8300000, guid: 4f74020fc9a0f4ba7968625d1e02a2c4, type: 3}
+  gameOverClip: {fileID: 8300000, guid: 8c9f6706c749f4fd884093a9a6c37936, type: 3}
+  damageClip: {fileID: 8300000, guid: 5dae3da400a0e4c6a9b1bad6e637ab82, type: 3}

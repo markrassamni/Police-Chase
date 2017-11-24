@@ -66,9 +66,11 @@ public class GameManager : Singleton<GameManager> {
 		if(!gameOver) {
 			paused = !paused;
 			if(paused){
+				SoundController.Instance.Pause();
 				Time.timeScale = 0f;
 				pausePanel.SetActive(true);
 			} else {
+				SoundController.Instance.UnPause();
 				Time.timeScale = 1f;
 				pausePanel.SetActive(false);
 			}
@@ -92,6 +94,7 @@ public class GameManager : Singleton<GameManager> {
 		// Show after set time, or when car leaves screen, whichever comes first
 		gameOver = true;
 		endPanel.SetActive(true);
+		SoundController.Instance.PlayGameOver();
 	}
 
 	public void SetTipText(string tip){

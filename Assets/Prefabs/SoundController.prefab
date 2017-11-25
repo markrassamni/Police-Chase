@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuMusic: {fileID: 8300000, guid: 88e55961d17d641c681da48f482bf018, type: 3}
-  gameMusic: {fileID: 8300000, guid: 59875f9dce9064cc78365dd05623ca71, type: 3}
+  gameMusic: {fileID: 8300000, guid: 2cab99457fbce472a99b3825f8611798, type: 3}
   dogBarkClip: {fileID: 8300000, guid: 3d8926305b45e414e800d0f366c6ca81, type: 3}
   trainHornClip: {fileID: 8300000, guid: ec7cde5b2404d449a9c34139b788f52b, type: 3}
   healClip: {fileID: 8300000, guid: 4f74020fc9a0f4ba7968625d1e02a2c4, type: 3}

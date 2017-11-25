@@ -94,7 +94,9 @@ public class GameManager : Singleton<GameManager> {
 		// Show after set time, or when car leaves screen, whichever comes first
 		gameOver = true;
 		endPanel.SetActive(true);
-		SoundController.Instance.PlayGameOver();
+		if (!gameWon){
+			SoundController.Instance.PlayGameOver();
+		}
 	}
 
 	public void SetTipText(string tip){

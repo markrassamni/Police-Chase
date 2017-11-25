@@ -138,4 +138,5 @@ MonoBehaviour:
   trainHornClip: {fileID: 8300000, guid: ec7cde5b2404d449a9c34139b788f52b, type: 3}
   healClip: {fileID: 8300000, guid: 4f74020fc9a0f4ba7968625d1e02a2c4, type: 3}
   gameOverClip: {fileID: 8300000, guid: 8c9f6706c749f4fd884093a9a6c37936, type: 3}
+  gameWonClip: {fileID: 8300000, guid: 0f83393f3381e4ed88718e10a2fc08af, type: 3}
   damageClip: {fileID: 8300000, guid: 5dae3da400a0e4c6a9b1bad6e637ab82, type: 3}

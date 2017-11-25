@@ -96,6 +96,8 @@ public class GameManager : Singleton<GameManager> {
 		endPanel.SetActive(true);
 		if (!gameWon){
 			SoundController.Instance.PlayGameOver();
+		} else {
+			SoundController.Instance.PlayGameWon();
 		}
 	}
 

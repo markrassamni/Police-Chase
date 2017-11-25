@@ -10,6 +10,7 @@ public class SoundController : Singleton<SoundController> {
 	[SerializeField] private AudioClip trainHornClip;
 	[SerializeField] private AudioClip healClip;
 	[SerializeField] private AudioClip gameOverClip;
+	[SerializeField] private AudioClip gameWonClip;
 	[SerializeField] private AudioClip damageClip;
 	private AudioSource musicSource;
 	private AudioSource sfxSource;
@@ -54,6 +55,11 @@ public class SoundController : Singleton<SoundController> {
 	public void PlayTrainHorn(){
 		musicSource.Stop();
 		sfxSource.PlayOneShot(trainHornClip);
+	}
+
+	public void PlayGameWon(){
+		musicSource.Stop();
+		sfxSource.PlayOneShot(gameWonClip);
 	}
 
 	public void PlayGameOver(){

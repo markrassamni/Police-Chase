@@ -46,7 +46,7 @@ public class GameManager : Singleton<GameManager> {
 				currentHealth -= damage;
 			} else {
 				currentHealth = 0;
-				LoseGame();
+				StartCoroutine(LoseGame());
 			}
 			heartImage.sprite = heartSprites[currentHealth];
 		}
@@ -84,20 +84,19 @@ public class GameManager : Singleton<GameManager> {
 		sceneController.LoadMenu();
 	}
 
-	public void LoseGame(){
+	public IEnumerator LoseGame(){
 		gameOver = true;
 		winLoseText.text = "Game Over";
-		Invoke("ShowGameOverPanel", timeForEndPanel);
+		yield return new WaitForSeconds(timeForEndPanel);
+		ShowGameLostPanel();
 	}
 
-	public void ShowGameOverPanel(){
-		// Show after set time, or when car leaves screen, whichever comes first
-		gameOver = true;
-		endPanel.SetActive(true);
-		if (!gameWon){
+	public void ShowGameLostPanel(){
+		// After set time, or when car leaves screen, whichever comes first
+		if(!endPanel.activeSelf){
+			gameOver = true;
+			endPanel.SetActive(true);
 			SoundController.Instance.PlayGameOver();
-		} else {
-			SoundController.Instance.PlayGameWon();
 		}
 	}
 
@@ -105,11 +104,14 @@ public class GameManager : Singleton<GameManager> {
 		tipText.text = tip;
 	}
 
-	public void WinGame(){
+	public IEnumerator WinGame(){
 		gameWon = true;
 		tipText.enabled = false;
 		winLoseText.text = "You Win!";
-		Invoke("ShowGameOverPanel", timeForEndPanel);
+		SoundController.Instance.PlayGameWon();
+		endPanel.SetActive(true);
+		yield return new WaitForSeconds(timeForEndPanel);
+		gameOver = true;
 	}
 
 	private void SpawnCriminal(){

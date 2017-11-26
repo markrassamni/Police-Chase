@@ -77,11 +77,11 @@ public class CarController : MonoBehaviour {
 				GameManager.Instance.SubtractHealth(damage);
 				GameManager.Instance.SetTipText("Tip: Running into a train instantly kills you.");
 			} else if (other.tag == "GameOver"){
-				GameManager.Instance.ShowGameOverPanel();
+				GameManager.Instance.ShowGameLostPanel();
 			} else if (other.tag == "Criminal"){
 				Criminal criminal = other.GetComponent<Criminal>();
 				criminal.GetComponent<Collider2D>().isTrigger = false;
-				GameManager.Instance.WinGame();
+				StartCoroutine(GameManager.Instance.WinGame());
 				criminal.SetMoveSpeedToRoadSpeed();
 				GetComponent<Rigidbody2D>().isKinematic = true;
 			}

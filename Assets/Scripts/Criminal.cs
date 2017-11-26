@@ -21,7 +21,7 @@ public class Criminal : Obstacle {
 	void OnTriggerEnter2D(Collider2D other){
 		if (!GameManager.Instance.GameOver && !GameManager.Instance.GameWon){
 			if(other.tag == "GameOver"){
-				GameManager.Instance.LoseGame();
+				StartCoroutine(GameManager.Instance.LoseGame());
 				GameManager.Instance.SetTipText("Tip: Don't let the criminal escape!");
 			}
 		}

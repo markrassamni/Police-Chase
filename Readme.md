@@ -5,5 +5,5 @@
 * Target Platform: macOS
 
 # Wiki Links
-[Instructions](http://rijeka.sdsu.edu/markrassamni/CS583_2D_Game_Rassamni_M_PoliceChase/wikis/Instructions)
-[Works Cited](http://rijeka.sdsu.edu/markrassamni/CS583_2D_Game_Rassamni_M_PoliceChase/wikis/Works-Cited)
+* [Instructions](http://rijeka.sdsu.edu/markrassamni/CS583_2D_Game_Rassamni_M_PoliceChase/wikis/Instructions)
+* [Works Cited](http://rijeka.sdsu.edu/markrassamni/CS583_2D_Game_Rassamni_M_PoliceChase/wikis/Works-Cited)
